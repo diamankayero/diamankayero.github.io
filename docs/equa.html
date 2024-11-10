@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Exercice équation différentielle</title>
+
+<style type="text/css" charset="utf-8">
+/* cleanrmd basic defaults */
+body {
+  /* at least one is usually overridden by the theme, but these ensure the
+  body doesn't go all the way up to the screen edge */
+  margin: 0.5em auto;
+  padding: 0.5em;
+  max-width: 48em;
+}
+code, code * { font-family: inherit; }
+
+@media only screen and (max-width: 768px) {
+  body { max-width: 100%; }
+}
+</style>
+
+  
+  <link href="site_libs/cleanrmd-0.1.1.9000/latex.css" rel="stylesheet" />
+
+<style type="text/css" charset="utf-8">
+/* cleanrmd overrides */
+img { max-width: 100%; }
+</style>
+
+
+
+
+<style>
+code, pre { overflow: auto; }
+pre code, pre code:not([class]) { white-space: unset; }
+</style>
+
+<link rel="stylesheet" href="styles.css" />
+
+<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+<body>
+
+
+<main>
+<header>
+<h1 id="title" class="toc-ignore">Exercice équation différentielle</h1>
+
+</header>
+
+
+<div class="exercise-box">
+<p><strong>Exercice 1.</strong></p>
+<p>Soit <span class="math inline">\(f\)</span> l’application de <span
+class="math inline">\(\mathbb{R}^2 \setminus \{(0, 0)\}\)</span> dans
+<span class="math inline">\(\mathbb{R}\)</span> définie par</p>
+<p><span class="math display">\[f(x,y) = \frac{3x^2
++xy}{\sqrt{x^2+y^2}}\]</span></p>
+<ol type="1">
+<li>Montrer que, pour tout (x,y) <span
+class="math inline">\(\mathbb{R}^2 \setminus \{(0, 0)\}\)</span> on a
+:</li>
+</ol>
+<p><span class="math display">\[|f(x,y)| \leq 4\|(x,y)\|_2
+,\]</span></p>
+<ol start="2" type="1">
+<li>Quelle est la limite de <span class="math inline">\(f\)</span> en
+<span class="math inline">\((0,0)\)</span>.</li>
+</ol>
+<details>
+<summary>
+<strong>Corrigé</strong>
+</summary>
+<ol type="1">
+<li>Pour tout <span class="math inline">\((x,y) \in
+\mathbb{R}^2\)</span>, on a:</li>
+</ol>
+<p><span class="math display">\[ x^2 \leq x^2 +y^2 \Rightarrow
+\sqrt{x^2} \leq \sqrt{x^2+y^2} \Rightarrow |x| \leq \|(x,y)\|_2\]</span>
+ET de meme <span class="math inline">\(|y| \leq \|(x,y)\|_2\)</span>. On
+en déduit, pour tout <span class="math inline">\((x,y) \neq
+(0,0)\)</span>:</p>
+<p><span class="math display">\[\begin{align}
+f(x,y) \leq \frac{3x^2 +xy}{\sqrt{x^2+y^2}} &amp; \leq\frac{3|x|^2
++|x||y|}{\|(x,y)\|_2}\\
+&amp;  \leq \frac{3\|(x,y)\|_2^2 +\|(x,y)\|_2^2}{\|(x,y)\|_2} \leq
+\frac{4\|(x,y)\|_2^2}{\|(x,y)\|_2} \leq 4\|(x,y)\|_2.
+
+
+\end{align}\]</span></p>
+<ol start="2" type="1">
+<li>Comme <span class="math inline">\(0 \leq |f(x,y)| \leq
+4\|(x,y)\|_2\)</span>. Alors d’après le théorème de gendarmes on a
+:</li>
+</ol>
+<p><span class="math display">\[ \lim_{(x,y) \to (0,0)}f(x,y) =
+0\]</span></p>
+</details>
+</div>
+<div class="exercise-box">
+<p><strong>Exercice 2.</strong></p>
+<p>Soit <span class="math inline">\(f\)</span> la fonction de=éfinie sur
+<span class="math inline">\(\mathbb{R}^2\)</span> par</p>
+<p><span class="math display">\[ f(x,y) =
+\begin{cases}
+\frac{xy}{x^2+y^2}, &amp; \text{si } (x,y) \neq (0,0) \\
+0, &amp; \text{si } (x,y) = (0,0)
+\end{cases} \]</span></p>
+<p>La fonction <span class="math inline">\(f\)</span> est-elle continue
+en 0 ?</p>
+<details>
+<summary>
+<strong>Corrigé</strong>
+</summary>
+<p>Prenons la suite <span class="math inline">\((u_n =
+(\frac{1}{n},\frac{1}{n}))_{n \in \mathbb{N}^*}\)</span> qui tend vers
+<span class="math inline">\((0,0)\)</span> lorsque <span
+class="math inline">\(n\)</span> tend vers <span class="math inline">\(+
+\infty\)</span>.</p>
+<p>On vérifie, facilement que <span
+class="math inline">\(f(u_n)=\frac{1}{2}\)</span> pour tout n.</p>
+<p>Donc, <span class="math display">\[ \lim f(u_n) = \frac{1}{2} \neq 0
+= f(0,0) = f(\lim (u_n)).\]</span> La fonction <span
+class="math inline">\(f\)</span> n’est pas donc continue en <span
+class="math inline">\((0,0)\)</span>.</p>
+</details>
+</div>
+<div class="exercise-box">
+<p><strong>Exercice 3.</strong></p>
+<p>Soit <span class="math inline">\(f : \mathbb{R}^2 \to
+\mathbb{R}\)</span> la fonction définie par :</p>
+<p><span class="math display">\[ f(x, y) = x^2 - 2xy + 3y. \]</span></p>
+<p>1.La fonction <span class="math inline">\(f\)</span> admet-elle des
+dérivées directionnelles en tout point de <span
+class="math inline">\(\mathbb{R}^2\)</span> suivant tous les vecteurs ?
+Pourquoi ?</p>
+<p>2.Soit <span class="math inline">\(u = (a, b)\)</span> un vecteur de
+<span class="math inline">\(\mathbb{R}^2\)</span> ; Calculer, à l’aide
+de la définition, la dérivée directionnelle de <span
+class="math inline">\(f\)</span> au point <span
+class="math inline">\((1, 2)\)</span> suivant <span
+class="math inline">\(u\)</span>.</p>
+<p>3.En déduire les valeurs des dérivées partielles en <span
+class="math inline">\((1, 2)\)</span> : <span
+class="math inline">\(\partial_1 f(1, 2)\)</span>, <span
+class="math inline">\(\partial_2 f(1, 2)\)</span>.</p>
+<details>
+<summary>
+<strong>Corrigé</strong>
+</summary>
+<ol type="1">
+<li><p>La fonction <span class="math inline">\(f\)</span> est
+polynomial, elle est donc de classe <span
+class="math inline">\(C1\)</span> sur <span
+class="math inline">\(\mathbb{R}\)</span> et possède des dérivées
+directionnelles en tout point de <span
+class="math inline">\(\mathbb{R}^2\)</span>, suivant tout vecteur de
+<span class="math inline">\(\mathbb{R}^2\)</span>.</p></li>
+<li><p>Par définition, <span class="math display">\[ \partial_u f(1, 2)
+= \lim_{t \to 0} \frac{f((1, 2) + t(a, b)) - f(1, 2)}{t} \]</span> et
+donc, <span class="math display">\[\partial_u f(1, 2) = \lim_{t \to 0}
+\frac{f(1 + at, 2 + bt) - f(1, 2)}{t} \]</span></p></li>
+</ol>
+<p>Considérons la fonction à une seule variable, <span
+class="math inline">\(\varphi(t) = f(1 + at, 2 + bt)\)</span>, alors
+<span class="math inline">\(\partial_u f(1, 2) =
+\varphi&#39;(0)\)</span>. On a : <span class="math display">\[
+\varphi(t) = (1 + at)^2 - 2(1 + at)(2 + bt) + 3(2 + bt) \]</span> <span
+class="math display">\[ = 1 + 2at + a^2t^2 - 2(2 + (2a + b)t + abt^2) +
+6 + 3bt \]</span> <span class="math display">\[ = 3 + (-2a + b)t + (a^2
+- 2ab)t^2 \]</span> et, par suite : <span class="math display">\[
+\partial_u f(1, 2) = \varphi&#39;(0) = -2a + b \]</span></p>
+<ol start="3" type="1">
+<li>Notons <span class="math inline">\((e_1 = (1, 0), e_2 = (0,
+1))\)</span> la base canonique de <span
+class="math inline">\(\mathbb{R}^2\)</span>.</li>
+</ol>
+<p>Les dérivées partielles sont les dérivées directionnelles suivant les
+vecteurs de la base canonique.</p>
+<p>En utilisant la question précédente, on obtient donc : <span
+class="math display">\[ \partial f / \partial x (1, 2) = \partial_1 f(1,
+2) = \partial_{e1} f(1, 2) = -2 \cdot 1 + 0 = -2 \]</span> <span
+class="math display">\[ \partial f / \partial y (1, 2) = \partial_2 f(1,
+2) = \partial_{e2} f(1, 2) = -2 \cdot 0 + 1 = 1 \]</span></p>
+</details>
+</div>
+<div class="exercise-box">
+<p><strong>Exercice 4</strong></p>
+<p>Expliquer pourquoi chacune des fonctions suivantes est de classe C1
+au voisinage du point indiqué, et calculer son gradient en ce point
+:</p>
+<ol type="1">
+<li><span class="math inline">\(f(x, y) = x \sqrt{y}\)</span> au point
+(1, 4)</li>
+<li><span class="math inline">\(g(x, y) = \frac{x}{y}\)</span> au point
+(6, 3)</li>
+<li><span class="math inline">\(h(x, y) = \sin(x + 2y)\)</span> au point
+(<span class="math inline">\(\pi\)</span>, 0)</li>
+<li><span class="math inline">\(u(x, y) = \sqrt{x} + e^y\)</span> au
+point (1, 0)</li>
+</ol>
+<details>
+<summary>
+<strong>Corrigé</strong>
+</summary>
+<p>Pour montrer que <span class="math inline">\(f\)</span> est de classe
+<span class="math inline">\(C1\)</span> au voisinage du point donné et
+pour calculer son gradient en ce point, nous devons d’abord vérifier que
+<span class="math inline">\(f\)</span> est différentiable et ensuite
+calculer ses dérivées partielles premières.</p>
+<p>1.La fonction <span class="math inline">\(f\)</span> est continue en
+tout point du domaine où elle est définie puisque la racine carrée et la
+multiplication sont des opérations continues.</p>
+<ol start="2" type="1">
+<li><ul>
+<li><span class="math inline">\(\frac{\partial f}{\partial x}(x, y) =
+\sqrt{y}\)</span></li>
+<li><span class="math inline">\(\frac{\partial f}{\partial y}(x, y) =
+\frac{x}{2\sqrt{y}}\)</span></li>
+</ul></li>
+</ol>
+<p>Calculons les dérivées partielles en <span class="math inline">\((1,
+4)\)</span> : - <span class="math inline">\(\frac{\partial f}{\partial
+x}(1, 4) = \sqrt{4} = 2\)</span> - <span
+class="math inline">\(\frac{\partial f}{\partial y}(1, 4) =
+\frac{1}{2\sqrt{4}} = \frac{1}{4}\)</span></p>
+<p>Le gradient de <span class="math inline">\(f\)</span> en <span
+class="math inline">\((1, 4)\)</span> est donc : <span
+class="math display">\[ \nabla f(1, 4) = \left( \frac{\partial
+f}{\partial x}(1, 4), \frac{\partial f}{\partial y}(1, 4) \right) = (2,
+\frac{1}{4}) \]</span></p>
+</details>
+</div>
+<div class="exercise-box">
+<p><strong>Exercice 5</strong></p>
+<p>Classe C1. On considère la fonction <span
+class="math inline">\(f\)</span> de <span
+class="math inline">\(\mathbb{R}^2\)</span> dans <span
+class="math inline">\(\mathbb{R}\)</span> définie par : <span
+class="math display">\[ f(x, y) = \begin{cases} \frac{x^2 y^3}{\sqrt{x^2
++ y^2}} &amp; \text{si } (x, y) \ne (0, 0) \\ 0 &amp; \text{sinon}
+\end{cases} \]</span></p>
+<ol type="1">
+<li>Montrer que <span class="math inline">\(f\)</span> est de classe
+<span class="math inline">\(C1\)</span> sur <span
+class="math inline">\(\mathbb{R}^2 \setminus \{(0, 0)\}\)</span>.</li>
+<li>Calculer les dérivées partielles de <span
+class="math inline">\(f\)</span> en tout point de <span
+class="math inline">\(\mathbb{R}^2 \setminus \{(0, 0)\}\)</span>.</li>
+<li>Calculer les dérivées partielles de <span
+class="math inline">\(f\)</span> en (0, 0).</li>
+<li>Montrer que <span class="math inline">\(f\)</span> est de classe
+<span class="math inline">\(C1\)</span> sur <span
+class="math inline">\(\mathbb{R}^2\)</span> entier.</li>
+</ol>
+<details>
+<summary>
+<strong>Corrigé</strong>
+</summary>
+<ol type="1">
+<li>Notons tout d’abord que, sur <span
+class="math inline">\(\mathbb{R}^2 \setminus \{(0, 0)\}\)</span>, la
+fonction <span class="math inline">\(\| (x, y) \|_2 = \sqrt{x^2 +
+y^2}\)</span> est composée de deux applications : <span
+class="math display">\[ \mathbb{R}^2 \xrightarrow{\varphi}
+\mathbb{R}_+^* \xrightarrow{\psi} \mathbb{R}_+^* \]</span> <span
+class="math display">\[ (x, y) \mapsto x^2 + y^2 \]</span> <span
+class="math display">\[ t \mapsto \sqrt{t} \]</span> Puisque <span
+class="math inline">\(\varphi\)</span> est de classe <span
+class="math inline">\(C1\)</span> sur <span
+class="math inline">\(\mathbb{R}^2 \setminus \{(0, 0)\}\)</span> et à
+valeurs dans l’ouvert <span
+class="math inline">\(\mathbb{R}_+^*\)</span> et que <span
+class="math inline">\(\psi\)</span> est de classe <span
+class="math inline">\(C1\)</span> sur <span
+class="math inline">\(\mathbb{R}_+^*\)</span>, <span
+class="math inline">\(\| \cdot \|_2 = \psi \circ \varphi\)</span> est de
+classe <span class="math inline">\(C1\)</span> sur <span
+class="math inline">\(\mathbb{R}^2 \setminus \{(0, 0)\}\)</span>.</li>
+</ol>
+<p>La fonction <span class="math inline">\(f\)</span> est donc un
+quotient de deux fonctions de classe <span
+class="math inline">\(C1\)</span>, dont le dénominateur ne s’annule pas
+; <span class="math inline">\(f\)</span> est donc de classe <span
+class="math inline">\(C1\)</span> sur <span
+class="math inline">\(\mathbb{R}^2 \setminus \{(0, 0)\}\)</span>.</p>
+<ol start="2" type="1">
+<li><p>Calculons les dérivées partielles sur <span
+class="math inline">\(\mathbb{R}^2 \setminus \{(0, 0)\}\)</span> : <span
+class="math display">\[\partial f / \partial x = \frac{2x y^3 \sqrt{x^2
++ y^2} - x^2 y^3 \frac{x}{\sqrt{x^2 + y^2}}}{(x^2 + y^2)} = \frac{2x y^3
+(x^2 + y^2) - x^3 y^3}{(x^2 + y^2)^{3/2}} \]</span> Donc,<span
+class="math display">\[\partial f / \partial x= \frac{x^3 y^3 + 2x
+y^5}{(x^2 + y^2)^{3/2}}\]</span> <span class="math display">\[ \partial
+f / \partial y = \frac{3x^2 y^2 \sqrt{x^2 + y^2} - x^2 y^3
+\frac{y}{\sqrt{x^2 + y^2}}}{(x^2 + y^2)} = \frac{3x^2 y^2 (x^2 + y^2) -
+x^2 y^4}{(x^2 + y^2)^{3/2}}\]</span> Donc,<span
+class="math display">\[\partial f / \partial y= \frac{3x^4 y^2 + 2x^2
+y^4}{(x^2 + y^2)^{3/2}} \]</span></p></li>
+<li><p>On a : <span class="math display">\[ \partial f / \partial x (0,
+0) = \lim_{t \to 0} \frac{f(t, 0) - f(0, 0)}{t} = 0 \]</span> <span
+class="math display">\[ \partial f / \partial y (0, 0) = \lim_{t \to 0}
+\frac{f(0, t) - f(0, 0)}{t} = 0 \]</span></p></li>
+<li><p>Il suffit de montrer que les dérivées partielles sont toutes deux
+continues en (0, 0). On a : <span class="math display">\[ \partial_1
+f(x, y) = \begin{cases} \frac{x^3 y^3 + 2x y^5}{\| (x, y) \|_2^3} &amp;
+\text{si } (x, y) \ne (0, 0) \\ 0 &amp; \text{si } (x, y) = (0, 0)
+\end{cases} \]</span> <span class="math display">\[ \partial_2 f(x, y) =
+\begin{cases} \frac{3x^4 y^2 + 2x^2 y^4}{\| (x, y) \|_2^3} &amp;
+\text{si } (x, y) \ne (0, 0) \\ 0 &amp; \text{si } (x, y) = (0, 0)
+\end{cases} \]</span> En majorant par la norme comme dans l’exercice 6,
+on trouve : <span class="math display">\[ |\partial_1 f(x, y)| \leq
+\frac{|x|^3 |y|^3 + 2|x||y|^5}{\| (x, y) \|_2^3} \leq 3 \frac{\| (x, y)
+\|_2^6}{\| (x, y) \|_2^3} = \| (x, y) \|_2^3 \]</span> Donc <span
+class="math inline">\(\lim_{(x, y) \to (0, 0)} \partial_1 f(x, y) = 0 =
+\partial_1 f(0, 0)\)</span>. La fonction <span
+class="math inline">\(\partial_1 f\)</span> est donc continue sur <span
+class="math inline">\(\mathbb{R}^2\)</span> entier.</p></li>
+</ol>
+<p>On procède de même pour <span class="math inline">\(\partial_2
+f\)</span> qui est aussi continue. La fonction <span
+class="math inline">\(f\)</span> est donc de classe <span
+class="math inline">\(C1\)</span> sur <span
+class="math inline">\(\mathbb{R}^2\)</span> entier.</p>
+</details>
+</div>
+<div class="exercise-box">
+<p><strong>Exercice 6</strong></p>
+<p>Pour les six fonctions de <span
+class="math inline">\(\mathbb{R}^2\)</span> dans <span
+class="math inline">\(\mathbb{R}\)</span> ci-dessous, répondre aux
+questions suivantes : \ 1. En quels points cette fonction admet-elle des
+dérivées partielles ? Les calculer. 2. En quels points cette fonction
+admet-elle des dérivées directionnelles suivant tous les vecteurs ? \ 3.
+En quels points cette fonction est-elle continue ? \ 4. Cette fonction
+est-elle de classe C1 ?</p>
+<p><span class="math inline">\(f(x, y) = \begin{cases}
+\frac{xy}{\sqrt{x^2 + y^2}} &amp; \text{si } (x, y) \ne (0, 0) \\ 0
+&amp; \text{sinon} \end{cases}\)</span> <span class="math inline">\(g(x,
+y) = \begin{cases} \frac{xy}{x^2 + y^2} &amp; \text{si } (x, y) \ne (0,
+0) \\ 0 &amp; \text{sinon} \end{cases}\)</span> <span
+class="math inline">\(h(x, y) = \begin{cases} \frac{x^2 y}{x^2 + y^2}
+&amp; \text{si } (x, y) \ne (0, 0) \\ 0 &amp; \text{sinon}
+\end{cases}\)</span> <span class="math inline">\(u(x, y) = \begin{cases}
+\frac{x^2 y}{x^4 + y^2} &amp; \text{si } (x, y) \ne (0, 0) \\ 0 &amp;
+\text{sinon} \end{cases}\)</span> <span class="math inline">\(v(x, y) =
+\begin{cases} y^2 \ln |x| &amp; \text{si } x \ne 0 \\ 0 &amp;
+\text{sinon} \end{cases}\)</span></p>
+<p>(pour <span class="math inline">\(u\)</span>, on pourra considérer la
+restriction de <span class="math inline">\(u\)</span> à la parabole
+d’équation <span class="math inline">\(y = x^2\)</span> paramétrée par
+<span class="math inline">\(t \mapsto (t, t^2)\)</span>).</p>
+<details>
+<summary>
+<strong>Corrigé <strong>pour</strong> <span
+class="math inline">\(f\)</span> </strong>
+</summary>
+<p>Cette fonction est de classe <span class="math inline">\(C1\)</span>
+sur <span class="math inline">\(\mathbb{R}^2 \setminus \{(0,
+0)\}\)</span>. Ses dérivées partielles sur <span
+class="math inline">\(\mathbb{R}^2 \setminus \{(0, 0)\}\)</span> valent
+: <span class="math display">\[ \partial f / \partial x = \frac{y
+\sqrt{x^2 + y^2} - xy \frac{x}{\sqrt{x^2 + y^2}}}{x^2 + y^2} =
+\frac{y^3}{(x^2 + y^2)^{3/2}} \]</span> <span class="math display">\[
+\partial f / \partial y = \frac{x \sqrt{x^2 + y^2} - xy
+\frac{y}{\sqrt{x^2 + y^2}}}{x^2 + y^2} = \frac{x^3}{(x^2 + y^2)^{3/2}}
+\]</span> On calcule par ailleurs : <span class="math display">\[
+\partial f / \partial x (0, 0) = 0 \]</span> <span
+class="math display">\[ \partial f / \partial y (0, 0) = 0 \]</span> La
+fonction <span class="math inline">\(f\)</span> admet donc des dérivées
+partielles en tout point de <span
+class="math inline">\(\mathbb{R}^2\)</span>. Elle est continue en 0
+puisque : <span class="math display">\[ |f(x, y)| \leq \frac{|x||y|}{\|
+(x, y) \|_2} \leq \| (x, y) \|_2 \rightarrow_{(x,y) \to (0, 0)} 0
+\]</span> En revanche, <span class="math inline">\(f\)</span> ne possède
+pas de dérivées directionnelles dans toutes les directions en (0,
+0).</p>
+<p>Par exemple, si <span class="math inline">\(u = (1, 1)\)</span> :
+<span class="math display">\[ \partial_u f(0, 0) = \lim_{t \to 0}
+\frac{f(t, t) - f(0, 0)}{t} = \lim_{t \to 0} \frac{t^2}{t \sqrt{t^2}} =
+\lim_{t \to 0} \frac{t}{|t|} \]</span> qui n’est pas définie (tend vers
+1 à droite et -1 à gauche).</p>
+<p>Ainsi, <span class="math inline">\(f\)</span> n’est pas de classe
+<span class="math inline">\(C1\)</span> au voisinage de (0, 0).</p>
+</details>
+<details>
+<summary>
+<strong>Corrigé <strong>pour</strong> <span
+class="math inline">\(g\)</span> </strong>
+</summary>
+<p>Cette fonction est de classe <span class="math inline">\(C1\)</span>
+sur <span class="math inline">\(\mathbb{R}^2 \setminus \{(0,
+0)\}\)</span>. Ses dérivées partielles sur <span
+class="math inline">\(\mathbb{R}^2 \setminus \{(0, 0)\}\)</span> valent
+: <span class="math display">\[ \partial g / \partial x (x, y) =
+\frac{y(x^2 + y^2) - xy(2x)}{(x^2 + y^2)^2} = \frac{-x^2 y + y^3}{(x^2 +
+y^2)^2} \]</span> <span class="math display">\[ \partial g / \partial y
+(x, y) = \frac{x(x^2 + y^2) - xy(2y)}{(x^2 + y^2)^2} = \frac{x^3 -
+xy^2}{(x^2 + y^2)^2} \]</span> On calcule par ailleurs : <span
+class="math display">\[ \partial g / \partial x (0, 0) = 0 \]</span>
+<span class="math display">\[ \partial g / \partial y (0, 0) = 0
+\]</span> La fonction <span class="math inline">\(g\)</span> admet donc
+des dérivées partielles en tout point de <span
+class="math inline">\(\mathbb{R}^2\)</span>. Pourtant, <span
+class="math inline">\(g\)</span> n’est pas continue en 0 puisque <span
+class="math inline">\(\lim_{n \to +\infty} g(1/n, 1/n) = 1/2 \neq g(0,
+0) = 0\)</span>.</p>
+<p>Elle n’est donc pas de classe <span class="math inline">\(C1\)</span>
+sur <span class="math inline">\(\mathbb{R}^2\)</span> entier.</p>
+<p>Enfin, <span class="math inline">\(g\)</span> ne possède pas de
+dérivées directionnelles dans toutes les directions en (0, 0).</p>
+<p>Par exemple, si <span class="math inline">\(u = (1, 1)\)</span> :
+<span class="math display">\[ \partial_u g(0, 0) = \lim_{t \to 0}
+\frac{g(t, t) - g(0, 0)}{t} = \lim_{t \to 0} \frac{1}{2t} \]</span> qui
+n’est pas définie. Ainsi, <span class="math inline">\(g\)</span> n’est
+pas de classe <span class="math inline">\(C1\)</span> au voisinage de
+(0, 0).</p>
+</details>
+<details>
+<summary>
+<strong>Corrigé <strong>pour</strong> <span
+class="math inline">\(h\)</span> </strong>
+</summary>
+<p>Cette fonction est de classe <span class="math inline">\(C1\)</span>
+sur <span class="math inline">\(\mathbb{R}^2 \setminus \{(0,
+0)\}\)</span>.</p>
+<p>Ses dérivées partielles sur <span class="math inline">\(\mathbb{R}^2
+\setminus \{(0, 0)\}\)</span> valent : <span class="math display">\[
+\partial h / \partial x (x, y) = \frac{2xy(x^2 + y^2) - x^2 y(2x)}{(x^2
++ y^2)^2} = \frac{2xy^3}{(x^2 + y^2)^2} \]</span> <span
+class="math display">\[ \partial h / \partial y (x, y) = \frac{x^2(x^2 +
+y^2) - x^2 y(2y)}{(x^2 + y^2)^2} = \frac{x^4 - x^2 y^2}{(x^2 + y^2)^2}
+\]</span> On calcule par ailleurs, à l’aide de la définition : <span
+class="math display">\[ \partial h / \partial x (0, 0) = 0 \]</span>
+<span class="math display">\[ \partial h / \partial y (0, 0) = 0
+\]</span> La fonction <span class="math inline">\(h\)</span> admet donc
+des dérivées partielles en tout point de <span
+class="math inline">\(\mathbb{R}^2\)</span>.</p>
+<p>Elle est continue en 0 puisque : <span class="math display">\[ |h(x,
+y)| \leq \frac{|x|^2 |y|}{\| (x, y) \|_2^2} \leq \frac{\| (x, y)
+\|_2^3}{\| (x, y) \|_2^2} = \| (x, y) \|_2 \rightarrow_{(x,y) \to (0,
+0)} 0 \]</span> La fonction <span class="math inline">\(h\)</span>
+possède des dérivées directionnelles dans toutes les directions en (0,
+0).</p>
+<p>Si <span class="math inline">\(u = (a, b)\)</span> est un vecteur non
+nul quelconque de <span class="math inline">\(\mathbb{R}^2\)</span>, on
+a : <span class="math display">\[ \partial_u h(0, 0) = \lim_{t \to 0}
+\frac{h(ta, tb) - h(0, 0)}{t} = \lim_{t \to 0} \frac{h(a, b)}{t^3} t t^2
+= h(a, b) \]</span> En revanche, <span class="math inline">\(h\)</span>
+n’est pas de classe <span class="math inline">\(C1\)</span>. \ Si elle
+l’était, le développement de Taylor-Young à l’ordre 1 en (0, 0)
+impliquerait que <span class="math inline">\(\partial_u=(a,b) h(0, 0) =
+a \partial_1 h(0, 0) + b \partial_2 h(0, 0) = 0\)</span>. Ce n’est pas
+le cas puisque, si <span class="math inline">\(u = (1, 1)\)</span> par
+exemple, <span class="math inline">\(\partial_u h(0, 0) = h(1, 1) =
+1/2\)</span>.</p>
+<p>Pour montrer que <span class="math inline">\(h\)</span> n’est pas de
+classe <span class="math inline">\(C1\)</span>, on peut aussi
+directement montrer que <span class="math inline">\(\partial_1
+h\)</span> n’est pas continue en (0, 0), à l’aide de la suite <span
+class="math inline">\((1/n, 1/n)\)</span> par exemple : <span
+class="math display">\[ \lim_{n \to +\infty} \partial_1 h(1/n, 1/n) =
+\lim_{n \to +\infty} 1/2 \neq \partial_1 h(0, 0) \]</span></p>
+</details>
+<details>
+<summary>
+<strong>Corrigé <strong>pour</strong> <span
+class="math inline">\(u\)</span> </strong>
+</summary>
+<p>La fonction <span class="math inline">\(u\)</span> est de classe
+<span class="math inline">\(C1\)</span> sur <span
+class="math inline">\(\mathbb{R}^2 \setminus \{(0, 0)\}\)</span>. \ On
+peut montrer qu’elle n’est pas continue en (0, 0) en approchant
+l’origine le long de la parabole <span class="math inline">\(y =
+x^2\)</span>.\ Considérons par exemple la suite de points <span
+class="math inline">\(p_n = (1/n, 1/n^2)\)</span> qui est sur cette
+parabole et tend vers (0, 0). \ On voit que <span
+class="math inline">\(f(p_n) = 1/2\)</span> qui ne tend pas vers 0 =
+<span class="math inline">\(u(0, 0)\)</span>.\ En revanche, <span
+class="math inline">\(u\)</span> possède des dérivées directionnelles
+suivant toutes les directions en (0, 0) puisque, si <span
+class="math inline">\(v = (a, b)\)</span> est un vecteur non nul, [ *v
+u(0, 0) =* = *{t* \to 0} = =</p>
+<span class="math display">\[\begin{cases} 0 &amp; \text{si } b = 0 \\
+a/b &amp; \text{sinon} \end{cases}\]</span>
+</details>
+<details>
+<summary>
+<strong>Corrigé <strong>pour</strong> <span
+class="math inline">\(v\)</span> </strong>
+</summary>
+<p>La fonction <span class="math inline">\(v\)</span> est de classe
+<span class="math inline">\(C1\)</span> sur <span
+class="math inline">\(\mathbb{R}^* \times \mathbb{R}\)</span>.</p>
+<p>Ses dérivées partielles sur <span class="math inline">\(\mathbb{R}^*
+\times \mathbb{R}\)</span> valent : <span class="math display">\[
+\partial v / \partial x (x, y) = \frac{y^2}{x} \]</span> <span
+class="math display">\[ \partial v / \partial y (x, y) = 2y \ln |x|
+\]</span> En un point <span class="math inline">\((0, y)\)</span>, <span
+class="math inline">\(y \ne 0\)</span> de l’axe des ordonnées, on a :
+<span class="math display">\[ \partial v / \partial x (0, y) = \lim_{t
+\to 0} \frac{v(t, y) - v(0, y)}{t} = \lim_{t \to 0} \frac{y^2 \ln
+|t|}{t} = -\infty \]</span> <span class="math display">\[ \partial v /
+\partial y (0, y) = \lim_{t \to 0} \frac{v(0, y + t) - v(0, y)}{t} = 0
+\]</span></p>
+<p>La fonction <span class="math inline">\(v\)</span> n’admet donc pas
+de dérivée partielle par rapport à <span
+class="math inline">\(x\)</span> sur l’axe des abscisses privé de
+l’origine.</p>
+<p>Elle admet des dérivées partielles en tout autre point de <span
+class="math inline">\(\mathbb{R}^2\)</span>.</p>
+<p>Cette fonction n’est pas continue sur l’axe des ordonnées privé de
+l’origine puisque <span class="math inline">\(\lim_{n \to +\infty} y^2
+\ln(1/n) = -\infty\)</span>.</p>
+<p>Montrons qu’elle n’est pas non plus continue en 0.</p>
+<p>Considérons la suite de points <span class="math inline">\(p_n =
+(1/n, e^{-n^2})\)</span>.</p>
+<p>Alors <span class="math inline">\(p_n\)</span> tend vers (0, 0) et
+<span class="math inline">\(v(p_n) = (1/n)^2 \ln(e^{-n^2}) = -1\)</span>
+pour tout <span class="math inline">\(n\)</span>.</p>
+<p>Sa limite est donc -1, différente de <span class="math inline">\(v(0,
+0) = 0\)</span>.</p>
+</details>
+</div>
+<div class="exercise-box">
+<p><strong>Exercice 7</strong></p>
+<p>Déterminer les matrices jacobiennes des applications suivantes :</p>
+<ol type="1">
+<li><span class="math inline">\(f : \mathbb{R}^2 \to \mathbb{R}\)</span>
+définie par <span class="math inline">\(f(x, y) = x \cos(y -
+x)\)</span></li>
+<li><span class="math inline">\(g : \mathbb{R} \to \mathbb{R}^3\)</span>
+définie par <span class="math inline">\(g(t) = (\cos t, \sin t,
+t)\)</span></li>
+<li><span class="math inline">\(h : \mathbb{R}^2 \to
+\mathbb{R}^2\)</span> définie par <span class="math inline">\(h(x, y) =
+(xy, e^x \cos y)\)</span></li>
+</ol>
+<details>
+<summary>
+<strong>Corrigé</strong>
+</summary>
+<p>On a :</p>
+<p><span class="math display">\[
+\begin{align}
+J_f(x, y) &amp;= \begin{bmatrix} \partial_1 f(x, y) &amp; \partial_2
+f(x, y) \end{bmatrix} \\
+          &amp;= \begin{bmatrix} \cos(y - x) + x \sin(y - x) &amp; -x
+\sin(y - x) \end{bmatrix}
+\end{align}
+\]</span></p>
+<p><span class="math display">\[ J_g(t) = \begin{bmatrix} g&#39;_1(t) \\
+g&#39;_2(t) \\ g&#39;_3(t) \end{bmatrix} = \begin{bmatrix} -\sin t \\
+\cos t \\ 1 \end{bmatrix} \]</span> <span class="math display">\[ J_h(x,
+y) = \begin{bmatrix} \partial_1 h_1(x, y) &amp; \partial_2 h_1(x, y) \\
+\partial_1 h_2(x, y) &amp; \partial_2 h_2(x, y) \end{bmatrix} =
+\begin{bmatrix} y &amp; x \\ e^x \cos y &amp; -e^x \sin y \end{bmatrix}
+\]</span></p>
+</details>
+</div>
+<div class="exercise-box">
+<p><strong>Exercice 8</strong></p>
+<p>Soit <span class="math inline">\(f : \mathbb{R}^2 \to
+\mathbb{R}\)</span> une fonction de classe <span
+class="math inline">\(C1\)</span>.</p>
+<p>On définit <span class="math inline">\(g : \mathbb{R} \to
+\mathbb{R}\)</span> par <span class="math inline">\(g(t) = f(2 + 2t,
+t^2)\)</span>.</p>
+<p>Démontrer que <span class="math inline">\(g\)</span> est <span
+class="math inline">\(C1\)</span> et calculer <span
+class="math inline">\(g&#39;(t)\)</span> en fonction des dérivées
+partielles de <span class="math inline">\(f\)</span>.</p>
+<details>
+<summary>
+<strong>Corrigé</strong>
+</summary>
+<p>Notons <span class="math inline">\(\varphi\)</span> la fonction de
+<span class="math inline">\(\mathbb{R}\)</span> dans <span
+class="math inline">\(\mathbb{R}^2\)</span> dont les fonctions
+coordonnées sont <span class="math inline">\(\varphi_1(t) = 2 +
+2t\)</span> et <span class="math inline">\(\varphi_2(t) = t^2\)</span>.
+On a <span class="math inline">\(g = f \circ \varphi\)</span> et on peut
+appliquer la formule du cours :</p>
+<p><span class="math display">\[
+\begin{align}
+g&#39;(t) &amp;= \partial_1 f(\varphi(t)) \varphi&#39;_1(t) + \partial_2
+f(\varphi(t)) \varphi&#39;_2(t) \\
+      &amp;= 2 \partial_1 f(2 + 2t, t^2) + 2t \partial_2 f(2 + 2t, t^2)
+\end{align}
+\]</span></p>
+</details>
+</div>
+<div class="exercise-box">
+<p><strong>Exercice 9</strong></p>
+<p>On considère une fonction de classe <span
+class="math inline">\(C1\)</span> <span class="math inline">\(f :
+\mathbb{R}^3 \to \mathbb{R}\)</span>, et on définit <span
+class="math inline">\(g : \mathbb{R}^3 \to \mathbb{R}\)</span> par <span
+class="math inline">\(g(x, y, z) = f(x^2 - y^2, y^2 - z^2, z^2 -
+x^2)\)</span>.</p>
+<p>Montrer que <span class="math inline">\(g\)</span> est de classe
+<span class="math inline">\(C1\)</span>, et que l’on a : <span
+class="math display">\[ \forall t \in \mathbb{R}, \partial_1 g(t, t, t)
++ \partial_2 g(t, t, t) + \partial_3 g(t, t, t) = 0 \]</span></p>
+<details>
+<summary>
+<strong>Corrigé</strong>
+</summary>
+<p>Considérons la fonction <span class="math inline">\(\varphi\)</span>
+de <span class="math inline">\(\mathbb{R}\)</span> dans <span
+class="math inline">\(\mathbb{R}^3\)</span> définie par <span
+class="math inline">\(\varphi(t) = (t, t, t)\)</span>. Considérons la
+fonction composée <span class="math inline">\(\psi(t) = g \circ
+\varphi\)</span>.</p>
+<p>En appliquant la formule des fonctions composées, on a :</p>
+<p><span class="math display">\[
+\begin{align}
+\psi&#39;(t) &amp;= \partial_1 g(\varphi(t)) \varphi&#39;_1(t) +
+\partial_2 g(\varphi(t)) \varphi&#39;_2(t) + \partial_3 g(\varphi(t))
+\varphi&#39;_3(t) \\
+         &amp;= \partial_1 g(\varphi(t)) + \partial_2 g(\varphi(t)) +
+\partial_3 g(\varphi(t))
+\end{align}
+\]</span></p>
+<p>Mais par ailleurs,</p>
+<p><span class="math display">\[ g \circ \varphi(t) = f(t^2 - t^2, t^2 -
+t^2, t^2 - t^2) = f(0, 0, 0) \]</span> en tout point <span
+class="math inline">\(t\)</span>.</p>
+<p>C’est donc une fonction constante, et sa dérivée est nulle.</p>
+</details>
+</div>
+<div class="exercise-box">
+<p><strong>Exercice 10</strong></p>
+<p>Soit <span class="math inline">\(f : \mathbb{R}^n \to
+\mathbb{R}\)</span> définie par <span class="math inline">\(f(x) =
+\|x\|^2\)</span>, où la norme est la norme euclidienne (norme 2).</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">\(f\)</span> est de classe
+<span class="math inline">\(C1\)</span> en dehors de <span
+class="math inline">\(0_{\mathbb{R}^n}\)</span>, et calculer son
+gradient.</li>
+<li>Même question pour la fonction <span class="math inline">\(g(x) =
+\frac{1}{\|x\|^2}\)</span> définie sur <span
+class="math inline">\(\mathbb{R}^n \setminus
+\{0_{\mathbb{R}^n}\}\)</span>.</li>
+</ol>
+<details>
+<summary>
+<strong>Corrigé</strong>
+</summary>
+</details>
+</div>
+
+</main>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+document.addEventListener("DOMContentLoaded", function(event) {
+  var script = document.createElement("script");
+  script.type = "text/javascript";
+  script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+  document.getElementsByTagName("head")[0].appendChild(script);
+});
+</script>
+
+</body>
+</html>

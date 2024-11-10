@@ -1,0 +1,19 @@
+name: "Mon site"
+output_dir: "docs"
+navbar:
+  title: "Mathématiques"
+  left:
+    - text: "Équations"
+      href: "equa.html"
+    - text: "Analyse"
+      href: "analyse.html"
+    - text: "Accueil"
+      href: index.html
+      
+      
+output: 
+  cleanrmd::html_document_clean:
+    theme: NULL
+    mathjax: default
+    use_fontawesome: true      
+    css: "styles.css" 

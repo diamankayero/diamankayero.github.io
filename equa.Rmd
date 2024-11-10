@@ -1,0 +1,506 @@
+---
+title: Exercice équation différentielle
+output: 
+  cleanrmd::html_document_clean:
+    theme: latex.css
+    mathjax: default
+    use_fontawesome: true
+    css: styles.css
+---
+
+::: exercise-box
+**Exercice 1.**
+
+Soit $f$ l'application de $\mathbb{R}^2 \setminus \{(0, 0)\}$ dans
+$\mathbb{R}$ définie par
+
+$$f(x,y) = \frac{3x^2 +xy}{\sqrt{x^2+y^2}}$$
+
+1.  Montrer que, pour tout (x,y) \in $\mathbb{R}^2 \setminus \{(0, 0)\}$
+    on a :
+
+$$|f(x,y)| \leq 4\|(x,y)\|_2 ,$$
+
+2.  Quelle est la limite de $f$ en $(0,0)$.
+
+<details>
+
+<summary><strong>Corrigé</strong></summary>
+
+1.  Pour tout $(x,y) \in \mathbb{R}^2$, on a:
+
+$$ x^2 \leq x^2 +y^2 \Rightarrow \sqrt{x^2} \leq \sqrt{x^2+y^2} \Rightarrow |x| \leq \|(x,y)\|_2$$
+ET de meme $|y| \leq \|(x,y)\|_2$. On en déduit, pour tout
+$(x,y) \neq (0,0)$:
+
+\begin{align}
+f(x,y) \leq \frac{3x^2 +xy}{\sqrt{x^2+y^2}} & \leq\frac{3|x|^2 +|x||y|}{\|(x,y)\|_2}\\
+&  \leq \frac{3\|(x,y)\|_2^2 +\|(x,y)\|_2^2}{\|(x,y)\|_2} \leq \frac{4\|(x,y)\|_2^2}{\|(x,y)\|_2} \leq 4\|(x,y)\|_2.
+
+
+\end{align}
+
+2.  Comme $0 \leq |f(x,y)| \leq 4\|(x,y)\|_2$. Alors d'après le théorème
+    de gendarmes on a :
+
+$$ \lim_{(x,y) \to (0,0)}f(x,y) = 0$$
+
+</details>
+:::
+
+::: exercise-box
+**Exercice 2.**
+
+Soit $f$ la fonction de=éfinie sur $\mathbb{R}^2$ par
+
+$$ f(x,y) = 
+\begin{cases} 
+\frac{xy}{x^2+y^2}, & \text{si } (x,y) \neq (0,0) \\ 
+0, & \text{si } (x,y) = (0,0) 
+\end{cases} $$
+
+La fonction $f$ est-elle continue en 0 ?
+
+<details>
+
+<summary><strong>Corrigé</strong></summary>
+
+Prenons la suite
+$(u_n = (\frac{1}{n},\frac{1}{n}))_{n \in \mathbb{N}^*}$ qui tend vers
+$(0,0)$ lorsque $n$ tend vers $+ \infty$.
+
+On vérifie, facilement que $f(u_n)=\frac{1}{2}$ pour tout n.
+
+Donc, $$ \lim f(u_n) = \frac{1}{2} \neq 0 = f(0,0) = f(\lim (u_n)).$$ La
+fonction $f$ n'est pas donc continue en $(0,0)$.
+
+</details>
+:::
+
+::: exercise-box
+**Exercice 3.**
+
+Soit $f : \mathbb{R}^2 \to \mathbb{R}$ la fonction définie par :
+
+$$ f(x, y) = x^2 - 2xy + 3y. $$
+
+1.La fonction $f$ admet-elle des dérivées directionnelles en tout point
+de $\mathbb{R}^2$ suivant tous les vecteurs ? \quad Pourquoi ?
+
+2.Soit $u = (a, b)$ un vecteur de $\mathbb{R}^2$ ; Calculer, à l’aide de
+la définition, la dérivée directionnelle de $f$ au point $(1, 2)$
+suivant $u$.
+
+3.En déduire les valeurs des dérivées partielles en $(1, 2)$ :
+$\partial_1 f(1, 2)$, $\partial_2 f(1, 2)$.
+
+<details>
+
+<summary><strong>Corrigé</strong></summary>
+
+1.  La fonction $f$ est polynomial, elle est donc de classe $C1$ sur
+    $\mathbb{R}$ et possède des dérivées directionnelles en tout point
+    de $\mathbb{R}^2$, suivant tout vecteur de $\mathbb{R}^2$.
+
+2.  Par définition,
+    $$ \partial_u f(1, 2) = \lim_{t \to 0} \frac{f((1, 2) + t(a, b)) - f(1, 2)}{t} $$
+    et donc,
+    $$\partial_u f(1, 2) = \lim_{t \to 0} \frac{f(1 + at, 2 + bt) - f(1, 2)}{t} $$
+
+Considérons la fonction à une seule variable,
+$\varphi(t) = f(1 + at, 2 + bt)$, alors
+$\partial_u f(1, 2) = \varphi'(0)$. On a :
+$$ \varphi(t) = (1 + at)^2 - 2(1 + at)(2 + bt) + 3(2 + bt) $$
+$$ = 1 + 2at + a^2t^2 - 2(2 + (2a + b)t + abt^2) + 6 + 3bt $$
+$$ = 3 + (-2a + b)t + (a^2 - 2ab)t^2 $$ et, par suite :
+$$ \partial_u f(1, 2) = \varphi'(0) = -2a + b $$
+
+3.  Notons $(e_1 = (1, 0), e_2 = (0, 1))$ la base canonique de
+    $\mathbb{R}^2$.
+
+Les dérivées partielles sont les dérivées directionnelles suivant les
+vecteurs de la base canonique.
+
+En utilisant la question précédente, on obtient donc :
+$$ \partial f / \partial x (1, 2) = \partial_1 f(1, 2) = \partial_{e1} f(1, 2) = -2 \cdot 1 + 0 = -2 $$
+$$ \partial f / \partial y (1, 2) = \partial_2 f(1, 2) = \partial_{e2} f(1, 2) = -2 \cdot 0 + 1 = 1 $$
+
+</details>
+:::
+
+::: exercise-box
+**Exercice 4**
+
+Expliquer pourquoi chacune des fonctions suivantes est de classe C1 au
+voisinage du point indiqué, et calculer son gradient en ce point :
+
+1.  $f(x, y) = x \sqrt{y}$ au point (1, 4)
+2.  $g(x, y) = \frac{x}{y}$ au point (6, 3)
+3.  $h(x, y) = \sin(x + 2y)$ au point ($\pi$, 0)
+4.  $u(x, y) = \sqrt{x} + e^y$ au point (1, 0)
+
+<details>
+
+<summary><strong>Corrigé</strong></summary>
+
+Pour montrer que $f$ est de classe $C1$ au voisinage du point donné et
+pour calculer son gradient en ce point, nous devons d'abord vérifier que
+$f$ est différentiable et ensuite calculer ses dérivées partielles
+premières.
+
+1.La fonction $f$ est continue en tout point du domaine où elle est
+définie puisque la racine carrée et la multiplication sont des
+opérations continues.
+
+2.  
+
+    -   $\frac{\partial f}{\partial x}(x, y) = \sqrt{y}$
+    -   $\frac{\partial f}{\partial y}(x, y) = \frac{x}{2\sqrt{y}}$
+
+Calculons les dérivées partielles en $(1, 4)$ : -
+$\frac{\partial f}{\partial x}(1, 4) = \sqrt{4} = 2$ -
+$\frac{\partial f}{\partial y}(1, 4) = \frac{1}{2\sqrt{4}} = \frac{1}{4}$
+
+Le gradient de $f$ en $(1, 4)$ est donc :
+$$ \nabla f(1, 4) = \left( \frac{\partial f}{\partial x}(1, 4), \frac{\partial f}{\partial y}(1, 4) \right) = (2, \frac{1}{4}) $$
+
+</details>
+:::
+
+::: exercise-box
+**Exercice 5**
+
+Classe C1. On considère la fonction $f$ de $\mathbb{R}^2$ dans
+$\mathbb{R}$ définie par :
+$$ f(x, y) = \begin{cases} \frac{x^2 y^3}{\sqrt{x^2 + y^2}} & \text{si } (x, y) \ne (0, 0) \\ 0 & \text{sinon} \end{cases} $$
+
+1.  Montrer que $f$ est de classe $C1$ sur
+    $\mathbb{R}^2 \setminus \{(0, 0)\}$.
+2.  Calculer les dérivées partielles de $f$ en tout point de
+    $\mathbb{R}^2 \setminus \{(0, 0)\}$.
+3.  Calculer les dérivées partielles de $f$ en (0, 0).
+4.  Montrer que $f$ est de classe $C1$ sur $\mathbb{R}^2$ entier.
+
+<details>
+
+<summary><strong>Corrigé</strong></summary>
+
+1.  Notons tout d’abord que, sur $\mathbb{R}^2 \setminus \{(0, 0)\}$, la
+    fonction $\| (x, y) \|_2 = \sqrt{x^2 + y^2}$ est composée de deux
+    applications :
+    $$ \mathbb{R}^2 \xrightarrow{\varphi} \mathbb{R}_+^* \xrightarrow{\psi} \mathbb{R}_+^* $$
+    $$ (x, y) \mapsto x^2 + y^2 $$ $$ t \mapsto \sqrt{t} $$ Puisque
+    $\varphi$ est de classe $C1$ sur $\mathbb{R}^2 \setminus \{(0, 0)\}$
+    et à valeurs dans l’ouvert $\mathbb{R}_+^*$ et que $\psi$ est de
+    classe $C1$ sur $\mathbb{R}_+^*$,
+    $\| \cdot \|_2 = \psi \circ \varphi$ est de classe $C1$ sur
+    $\mathbb{R}^2 \setminus \{(0, 0)\}$.
+
+La fonction $f$ est donc un quotient de deux fonctions de classe $C1$,
+dont le dénominateur ne s’annule pas ; $f$ est donc de classe $C1$ sur
+$\mathbb{R}^2 \setminus \{(0, 0)\}$.
+
+2.  Calculons les dérivées partielles sur
+    $\mathbb{R}^2 \setminus \{(0, 0)\}$ :
+    $$\partial f / \partial x = \frac{2x y^3 \sqrt{x^2 + y^2} - x^2 y^3 \frac{x}{\sqrt{x^2 + y^2}}}{(x^2 + y^2)} = \frac{2x y^3 (x^2 + y^2) - x^3 y^3}{(x^2 + y^2)^{3/2}} $$
+    Donc,$$\partial f / \partial x= \frac{x^3 y^3 + 2x y^5}{(x^2 + y^2)^{3/2}}$$
+    $$ \partial f / \partial y = \frac{3x^2 y^2 \sqrt{x^2 + y^2} - x^2 y^3 \frac{y}{\sqrt{x^2 + y^2}}}{(x^2 + y^2)} = \frac{3x^2 y^2 (x^2 + y^2) - x^2 y^4}{(x^2 + y^2)^{3/2}}$$
+    Donc,$$\partial f / \partial y= \frac{3x^4 y^2 + 2x^2 y^4}{(x^2 + y^2)^{3/2}} $$
+
+3.  On a :
+    $$ \partial f / \partial x (0, 0) = \lim_{t \to 0} \frac{f(t, 0) - f(0, 0)}{t} = 0 $$
+    $$ \partial f / \partial y (0, 0) = \lim_{t \to 0} \frac{f(0, t) - f(0, 0)}{t} = 0 $$
+
+4.  Il suffit de montrer que les dérivées partielles sont toutes deux
+    continues en (0, 0). On a :
+    $$ \partial_1 f(x, y) = \begin{cases} \frac{x^3 y^3 + 2x y^5}{\| (x, y) \|_2^3} & \text{si } (x, y) \ne (0, 0) \\ 0 & \text{si } (x, y) = (0, 0) \end{cases} $$
+    $$ \partial_2 f(x, y) = \begin{cases} \frac{3x^4 y^2 + 2x^2 y^4}{\| (x, y) \|_2^3} & \text{si } (x, y) \ne (0, 0) \\ 0 & \text{si } (x, y) = (0, 0) \end{cases} $$
+    En majorant par la norme comme dans l’exercice 6, on trouve :
+    $$ |\partial_1 f(x, y)| \leq \frac{|x|^3 |y|^3 + 2|x||y|^5}{\| (x, y) \|_2^3} \leq 3 \frac{\| (x, y) \|_2^6}{\| (x, y) \|_2^3} = \| (x, y) \|_2^3 $$
+    Donc
+    $\lim_{(x, y) \to (0, 0)} \partial_1 f(x, y) = 0 = \partial_1 f(0, 0)$.
+    La fonction $\partial_1 f$ est donc continue sur $\mathbb{R}^2$
+    entier.
+
+On procède de même pour $\partial_2 f$ qui est aussi continue. La
+fonction $f$ est donc de classe $C1$ sur $\mathbb{R}^2$ entier.
+
+</details>
+:::
+
+::: exercise-box
+**Exercice 6**
+
+Pour les six fonctions de $\mathbb{R}^2$ dans $\mathbb{R}$ ci-dessous,
+répondre aux questions suivantes : \\ 1. En quels points cette fonction
+admet-elle des dérivées partielles ? Les calculer. 2. En quels points
+cette fonction admet-elle des dérivées directionnelles suivant tous les
+vecteurs ? \\ 3. En quels points cette fonction est-elle continue ? \\
+4. Cette fonction est-elle de classe C1 ?
+
+$f(x, y) = \begin{cases} \frac{xy}{\sqrt{x^2 + y^2}} & \text{si } (x, y) \ne (0, 0) \\ 0 & \text{sinon} \end{cases}$
+$g(x, y) = \begin{cases} \frac{xy}{x^2 + y^2} & \text{si } (x, y) \ne (0, 0) \\ 0 & \text{sinon} \end{cases}$
+$h(x, y) = \begin{cases} \frac{x^2 y}{x^2 + y^2} & \text{si } (x, y) \ne (0, 0) \\ 0 & \text{sinon} \end{cases}$
+$u(x, y) = \begin{cases} \frac{x^2 y}{x^4 + y^2} & \text{si } (x, y) \ne (0, 0) \\ 0 & \text{sinon} \end{cases}$
+$v(x, y) = \begin{cases} y^2 \ln |x| & \text{si } x \ne 0 \\ 0 & \text{sinon} \end{cases}$
+
+(pour $u$, on pourra considérer la restriction de $u$ à la parabole
+d’équation $y = x^2$ paramétrée par $t \mapsto (t, t^2)$).
+
+<details>
+
+<summary><strong>Corrigé **pour** $f$ </strong></summary>
+
+Cette fonction est de classe $C1$ sur
+$\mathbb{R}^2 \setminus \{(0, 0)\}$. Ses dérivées partielles sur
+$\mathbb{R}^2 \setminus \{(0, 0)\}$ valent :
+$$ \partial f / \partial x = \frac{y \sqrt{x^2 + y^2} - xy \frac{x}{\sqrt{x^2 + y^2}}}{x^2 + y^2} = \frac{y^3}{(x^2 + y^2)^{3/2}} $$
+$$ \partial f / \partial y = \frac{x \sqrt{x^2 + y^2} - xy \frac{y}{\sqrt{x^2 + y^2}}}{x^2 + y^2} = \frac{x^3}{(x^2 + y^2)^{3/2}} $$
+On calcule par ailleurs : $$ \partial f / \partial x (0, 0) = 0 $$
+$$ \partial f / \partial y (0, 0) = 0 $$ La fonction $f$ admet donc des
+dérivées partielles en tout point de $\mathbb{R}^2$. Elle est continue
+en 0 puisque :
+$$ |f(x, y)| \leq \frac{|x||y|}{\| (x, y) \|_2} \leq \| (x, y) \|_2 \rightarrow_{(x,y) \to (0, 0)} 0 $$
+En revanche, $f$ ne possède pas de dérivées directionnelles dans toutes
+les directions en (0, 0).
+
+Par exemple, si $u = (1, 1)$ :
+$$ \partial_u f(0, 0) = \lim_{t \to 0} \frac{f(t, t) - f(0, 0)}{t} = \lim_{t \to 0} \frac{t^2}{t \sqrt{t^2}} = \lim_{t \to 0} \frac{t}{|t|} $$
+qui n’est pas définie (tend vers 1 à droite et -1 à gauche).
+
+Ainsi, $f$ n’est pas de classe $C1$ au voisinage de (0, 0).
+
+</details>
+
+<details>
+
+<summary><strong>Corrigé **pour** $g$ </strong></summary>
+
+Cette fonction est de classe $C1$ sur
+$\mathbb{R}^2 \setminus \{(0, 0)\}$. Ses dérivées partielles sur
+$\mathbb{R}^2 \setminus \{(0, 0)\}$ valent :
+$$ \partial g / \partial x (x, y) = \frac{y(x^2 + y^2) - xy(2x)}{(x^2 + y^2)^2} = \frac{-x^2 y + y^3}{(x^2 + y^2)^2} $$
+$$ \partial g / \partial y (x, y) = \frac{x(x^2 + y^2) - xy(2y)}{(x^2 + y^2)^2} = \frac{x^3 - xy^2}{(x^2 + y^2)^2} $$
+On calcule par ailleurs : $$ \partial g / \partial x (0, 0) = 0 $$
+$$ \partial g / \partial y (0, 0) = 0 $$ La fonction $g$ admet donc des
+dérivées partielles en tout point de $\mathbb{R}^2$. Pourtant, $g$ n’est
+pas continue en 0 puisque
+$\lim_{n \to +\infty} g(1/n, 1/n) = 1/2 \neq g(0, 0) = 0$.
+
+Elle n’est donc pas de classe $C1$ sur $\mathbb{R}^2$ entier.
+
+Enfin, $g$ ne possède pas de dérivées directionnelles dans toutes les
+directions en (0, 0).
+
+Par exemple, si $u = (1, 1)$ :
+$$ \partial_u g(0, 0) = \lim_{t \to 0} \frac{g(t, t) - g(0, 0)}{t} = \lim_{t \to 0} \frac{1}{2t} $$
+qui n’est pas définie. Ainsi, $g$ n’est pas de classe $C1$ au voisinage
+de (0, 0).
+
+</details>
+
+<details>
+
+<summary><strong>Corrigé **pour** $h$ </strong></summary>
+
+Cette fonction est de classe $C1$ sur
+$\mathbb{R}^2 \setminus \{(0, 0)\}$.
+
+Ses dérivées partielles sur $\mathbb{R}^2 \setminus \{(0, 0)\}$ valent :
+$$ \partial h / \partial x (x, y) = \frac{2xy(x^2 + y^2) - x^2 y(2x)}{(x^2 + y^2)^2} = \frac{2xy^3}{(x^2 + y^2)^2} $$
+$$ \partial h / \partial y (x, y) = \frac{x^2(x^2 + y^2) - x^2 y(2y)}{(x^2 + y^2)^2} = \frac{x^4 - x^2 y^2}{(x^2 + y^2)^2} $$
+On calcule par ailleurs, à l’aide de la définition :
+$$ \partial h / \partial x (0, 0) = 0 $$
+$$ \partial h / \partial y (0, 0) = 0 $$ La fonction $h$ admet donc des
+dérivées partielles en tout point de $\mathbb{R}^2$.
+
+Elle est continue en 0 puisque :
+$$ |h(x, y)| \leq \frac{|x|^2 |y|}{\| (x, y) \|_2^2} \leq \frac{\| (x, y) \|_2^3}{\| (x, y) \|_2^2} = \| (x, y) \|_2 \rightarrow_{(x,y) \to (0, 0)} 0 $$
+La fonction $h$ possède des dérivées directionnelles dans toutes les
+directions en (0, 0).
+
+Si $u = (a, b)$ est un vecteur non nul quelconque de $\mathbb{R}^2$, on
+a :
+$$ \partial_u h(0, 0) = \lim_{t \to 0} \frac{h(ta, tb) - h(0, 0)}{t} = \lim_{t \to 0} \frac{h(a, b)}{t^3} t t^2 = h(a, b) $$
+En revanche, $h$ n’est pas de classe $C1$. \\ Si elle l’était, le
+développement de Taylor-Young à l’ordre 1 en (0, 0) impliquerait que
+$\partial_u=(a,b) h(0, 0) = a \partial_1 h(0, 0) + b \partial_2 h(0, 0) = 0$.
+Ce n’est pas le cas puisque, si $u = (1, 1)$ par exemple,
+$\partial_u h(0, 0) = h(1, 1) = 1/2$.
+
+Pour montrer que $h$ n’est pas de classe $C1$, on peut aussi directement
+montrer que $\partial_1 h$ n’est pas continue en (0, 0), à l’aide de la
+suite $(1/n, 1/n)$ par exemple :
+$$ \lim_{n \to +\infty} \partial_1 h(1/n, 1/n) = \lim_{n \to +\infty} 1/2 \neq \partial_1 h(0, 0) $$
+
+</details>
+
+<details>
+
+<summary><strong>Corrigé **pour** $u$ </strong></summary>
+
+La fonction $u$ est de classe $C1$ sur
+$\mathbb{R}^2 \setminus \{(0, 0)\}$. \\ On peut montrer qu’elle n’est
+pas continue en (0, 0) en approchant l’origine le long de la parabole
+$y = x^2$.\\ Considérons par exemple la suite de points
+$p_n = (1/n, 1/n^2)$ qui est sur cette parabole et tend vers (0, 0). \\
+On voit que $f(p_n) = 1/2$ qui ne tend pas vers 0 = $u(0, 0)$.\\ En
+revanche, $u$ possède des dérivées directionnelles suivant toutes les
+directions en (0, 0) puisque, si $v = (a, b)$ est un vecteur non nul, [
+\partial\*v u(0, 0) =\* \lim{t \to 0} \frac{u(ta, tab) - u(0, 0)}{t} =
+\lim\*{t\* \\to 0} \frac{t^3 ab}{t^3 (t^2 a^2 + b^2)} = \lim{t \to 0}
+\frac{ab}{t^2 a^2 + b^2} =
+
+\begin{cases} 0 & \text{si } b = 0 \\ a/b & \text{sinon} \end{cases}
+
+</details>
+
+<details>
+
+<summary><strong>Corrigé **pour** $v$ </strong></summary>
+
+La fonction $v$ est de classe $C1$ sur $\mathbb{R}^* \times \mathbb{R}$.
+
+Ses dérivées partielles sur $\mathbb{R}^* \times \mathbb{R}$ valent :
+$$ \partial v / \partial x (x, y) = \frac{y^2}{x} $$
+$$ \partial v / \partial y (x, y) = 2y \ln |x| $$ En un point $(0, y)$,
+$y \ne 0$ de l’axe des ordonnées, on a :
+$$ \partial v / \partial x (0, y) = \lim_{t \to 0} \frac{v(t, y) - v(0, y)}{t} = \lim_{t \to 0} \frac{y^2 \ln |t|}{t} = -\infty $$
+$$ \partial v / \partial y (0, y) = \lim_{t \to 0} \frac{v(0, y + t) - v(0, y)}{t} = 0 $$
+
+La fonction $v$ n’admet donc pas de dérivée partielle par rapport à $x$
+sur l’axe des abscisses privé de l’origine.
+
+Elle admet des dérivées partielles en tout autre point de
+$\mathbb{R}^2$.
+
+Cette fonction n’est pas continue sur l’axe des ordonnées privé de
+l’origine puisque $\lim_{n \to +\infty} y^2 \ln(1/n) = -\infty$.
+
+Montrons qu’elle n’est pas non plus continue en 0.
+
+Considérons la suite de points $p_n = (1/n, e^{-n^2})$.
+
+Alors $p_n$ tend vers (0, 0) et $v(p_n) = (1/n)^2 \ln(e^{-n^2}) = -1$
+pour tout $n$.
+
+Sa limite est donc -1, différente de $v(0, 0) = 0$.
+
+</details>
+:::
+
+::: exercise-box
+**Exercice 7**
+
+Déterminer les matrices jacobiennes des applications suivantes :
+
+1.  $f : \mathbb{R}^2 \to \mathbb{R}$ définie par
+    $f(x, y) = x \cos(y - x)$
+2.  $g : \mathbb{R} \to \mathbb{R}^3$ définie par
+    $g(t) = (\cos t, \sin t, t)$
+3.  $h : \mathbb{R}^2 \to \mathbb{R}^2$ définie par
+    $h(x, y) = (xy, e^x \cos y)$
+
+<details>
+
+<summary><strong>Corrigé</strong></summary>
+
+On a :
+
+$$
+\begin{align}
+J_f(x, y) &= \begin{bmatrix} \partial_1 f(x, y) & \partial_2 f(x, y) \end{bmatrix} \\
+          &= \begin{bmatrix} \cos(y - x) + x \sin(y - x) & -x \sin(y - x) \end{bmatrix}
+\end{align}
+$$
+
+$$ J_g(t) = \begin{bmatrix} g'_1(t) \\ g'_2(t) \\ g'_3(t) \end{bmatrix} = \begin{bmatrix} -\sin t \\ \cos t \\ 1 \end{bmatrix} $$
+$$ J_h(x, y) = \begin{bmatrix} \partial_1 h_1(x, y) & \partial_2 h_1(x, y) \\ \partial_1 h_2(x, y) & \partial_2 h_2(x, y) \end{bmatrix} = \begin{bmatrix} y & x \\ e^x \cos y & -e^x \sin y \end{bmatrix} $$
+
+</details>
+:::
+
+::: exercise-box
+**Exercice 8**
+
+Soit $f : \mathbb{R}^2 \to \mathbb{R}$ une fonction de classe $C1$.
+
+On définit $g : \mathbb{R} \to \mathbb{R}$ par $g(t) = f(2 + 2t, t^2)$.
+
+Démontrer que $g$ est $C1$ et calculer $g'(t)$ en fonction des dérivées
+partielles de $f$.
+
+<details>
+
+<summary><strong>Corrigé</strong></summary>
+
+Notons $\varphi$ la fonction de $\mathbb{R}$ dans $\mathbb{R}^2$ dont
+les fonctions coordonnées sont $\varphi_1(t) = 2 + 2t$ et
+$\varphi_2(t) = t^2$. On a $g = f \circ \varphi$ et on peut appliquer la
+formule du cours :
+
+$$
+\begin{align}
+g'(t) &= \partial_1 f(\varphi(t)) \varphi'_1(t) + \partial_2 f(\varphi(t)) \varphi'_2(t) \\
+      &= 2 \partial_1 f(2 + 2t, t^2) + 2t \partial_2 f(2 + 2t, t^2)
+\end{align}
+$$
+
+</details>
+:::
+
+::: exercise-box
+**Exercice 9**
+
+On considère une fonction de classe $C1$
+$f : \mathbb{R}^3 \to \mathbb{R}$, et on définit
+$g : \mathbb{R}^3 \to \mathbb{R}$ par
+$g(x, y, z) = f(x^2 - y^2, y^2 - z^2, z^2 - x^2)$.
+
+Montrer que $g$ est de classe $C1$, et que l’on a :
+$$ \forall t \in \mathbb{R}, \partial_1 g(t, t, t) + \partial_2 g(t, t, t) + \partial_3 g(t, t, t) = 0 $$
+
+<details>
+
+<summary><strong>Corrigé</strong></summary>
+
+Considérons la fonction $\varphi$ de $\mathbb{R}$ dans $\mathbb{R}^3$
+définie par $\varphi(t) = (t, t, t)$. Considérons la fonction composée
+$\psi(t) = g \circ \varphi$.
+
+En appliquant la formule des fonctions composées, on a :
+
+$$
+\begin{align}
+\psi'(t) &= \partial_1 g(\varphi(t)) \varphi'_1(t) + \partial_2 g(\varphi(t)) \varphi'_2(t) + \partial_3 g(\varphi(t)) \varphi'_3(t) \\
+         &= \partial_1 g(\varphi(t)) + \partial_2 g(\varphi(t)) + \partial_3 g(\varphi(t))
+\end{align}
+$$
+
+Mais par ailleurs,
+
+$$ g \circ \varphi(t) = f(t^2 - t^2, t^2 - t^2, t^2 - t^2) = f(0, 0, 0) $$
+en tout point $t$.
+
+C’est donc une fonction constante, et sa dérivée est nulle.
+
+</details>
+:::
+
+::: exercise-box
+**Exercice 10**
+
+Soit $f : \mathbb{R}^n \to \mathbb{R}$ définie par $f(x) = \|x\|^2$, où
+la norme est la norme euclidienne (norme 2).
+
+1.  Montrer que $f$ est de classe $C1$ en dehors de $0_{\mathbb{R}^n}$,
+    et calculer son gradient.
+2.  Même question pour la fonction $g(x) = \frac{1}{\|x\|^2}$ définie
+    sur $\mathbb{R}^n \setminus \{0_{\mathbb{R}^n}\}$.
+
+<details>
+
+<summary><strong>Corrigé</strong></summary>
+
+</details>
+:::

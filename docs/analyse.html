@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Exercices Analyse</title>
+
+<style type="text/css" charset="utf-8">
+/* cleanrmd basic defaults */
+body {
+  /* at least one is usually overridden by the theme, but these ensure the
+  body doesn't go all the way up to the screen edge */
+  margin: 0.5em auto;
+  padding: 0.5em;
+  max-width: 48em;
+}
+code, code * { font-family: inherit; }
+
+@media only screen and (max-width: 768px) {
+  body { max-width: 100%; }
+}
+</style>
+
+  
+  <link href="site_libs/cleanrmd-0.1.1.9000/superstylin.css" rel="stylesheet" />
+
+<style type="text/css" charset="utf-8">
+/* cleanrmd overrides */
+img { max-width: 100%; }
+</style>
+
+
+
+
+<style>
+code, pre { overflow: auto; }
+pre code, pre code:not([class]) { white-space: unset; }
+</style>
+
+<link rel="stylesheet" href="styles.css" />
+
+<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+<body>
+
+
+<main>
+<header>
+<h1 id="title" class="toc-ignore">Exercices Analyse</h1>
+
+</header>
+
+
+<h3 id="sommes-de-riemann">Sommes de Riemann</h3>
+<h4 id="définition.">Définition.</h4>
+<p>Soit <span class="math inline">\(f\)</span> une fonction définie sur
+<span class="math inline">\([a,b]\)</span>. Pour toute subdivision <span
+class="math inline">\(\sigma\)</span> <span class="math inline">\(=(a_0,
+\cdots, a_n)\)</span> et pour tout <span
+class="math inline">\(c_0,\cdots,c_{n-1}\)</span> tels que <span
+class="math inline">\(c_i \in [a_i,a_{i+1}]\)</span>,</p>
+<p>la somme <span
+class="math inline">\(\sum_{i=0}^{n}(a_{i+1}-a_i)f(c_i)\)</span> est une
+somme de Riemann associée à f, à la subdivision <span
+class="math inline">\(\sigma\)</span> et à <span
+class="math inline">\(c_i\)</span>.</p>
+<h4 id="remarque.">Remarque.</h4>
+<p>On note <span class="math inline">\(\sigma_{n}\)</span> la
+subdivision de <span class="math inline">\([a,b]\)</span> de pas <span
+class="math inline">\(\frac{b-a}{n}\)</span>. La somme <span
+class="math display">\[S(f,\sigma_{n})=\sum_{i=1}^{n}\frac{b-a}{n}f(a+i\frac{b-a}{n})\]</span>
+est une somme de Riemann associée à f et à la subdivision <span
+class="math inline">\(\sigma_{n}\)</span>.</p>
+<h4 id="théorème.">Théorème.</h4>
+<p>Soit <span class="math inline">\(f\)</span> une fonction continue sur
+<span class="math inline">\([a,b]\)</span>. Alors, pour toute
+fammille</p>
+<p><span class="math display">\[\lim_{n \to
++\infty}\sum_{i=0}^{n-1}\frac{b-a}{n}f(a+i\frac{b-a}{n})= \int_{a}^{b}
+f\ .\]</span></p>
+</div>
+<div class="exercise-box">
+<p><strong>Énoncé 1</strong></p>
+<p>Calculer la limite de la suite suivante quand <span
+class="math inline">\(n \to \infty\)</span> :</p>
+<p><span class="math display">\[\sum_{k=1}^{n}
+\frac{1}{k+n}\]</span></p>
+<details>
+<summary>
+<strong>Corrigé</strong>
+</summary>
+<!-- Insère la solution ici -->
+<p>Posons <span class="math inline">\(x_n = \sum_{k=1}^{n}
+\frac{1}{k+n}\)</span> , donc <span
+class="math display">\[\sum_{k=1}^{n} \frac{1}{n(\frac{k}{n}+1)} =
+\frac{1}{n}\sum_{k=1}^{n}\frac{1}{\frac{k}{n}+1}\]</span></p>
+<p>avec <span class="math inline">\(f(t)\)</span> =<span
+class="math inline">\(\frac{1}{1+t}\)</span> sur <span
+class="math inline">\([0,1]\)</span>, on reconnait la somme de Riemann
+et la subdivision réglière est <span
+class="math inline">\(\sigma_{n}^{k}\)</span> = <span
+class="math inline">\(\frac{k}{n}\)</span>, <span
+class="math inline">\(k \in \{1, \dots, n\}\)</span>.</p>
+<p>Comme <span class="math inline">\(f\)</span> est continue sur <span
+class="math inline">\([0,1]\)</span>, donc elle est intégrable au sens
+de Riemann sur <span class="math inline">\([0,1]\)</span>.</p>
+<p>Et la <span class="math display">\[\lim_{n \to +\infty} x_n =
+\int_{0}^{1} f(t) \, dt = \int_{0}^{1}\frac{1}{1+t}\,dt = [ \ln(1+t)
+]_{0}^{1} = \ln2\]</span></p>
+</details>
+</div>
+<div class="exercise-box">
+<p><strong>Énoncé 2</strong></p>
+<p>Calculer la limite de la suite suivante quand <span
+class="math inline">\(n \to \infty\)</span> :</p>
+<p><span class="math display">\[\frac{1}{n^2} \left(\sqrt{1(n-1)} +
+\sqrt{2(n-2)} + \cdots + \sqrt{(n-1)1}\right)\]</span></p>
+<details>
+<summary>
+<strong>Corrigé</strong>
+</summary>
+<!-- Insère la solution ici -->
+<p>Posons <span class="math display">\[c_n = \frac{1}{n^2}
+\left(\sqrt{1(n-1)} + \sqrt{2(n-2)} + \cdots +
+\sqrt{(n-1)1}\right)\]</span> En factorisant, on remarque que <span
+class="math display">\[c_n = \frac{1}{n} \sum_{k=1}^{n-1}\sqrt{
+\frac{k}{n}(1-\frac{k}{n})} \]</span></p>
+<p>Ainsi, <span class="math inline">\(f(t) = \sqrt{t(1-t)}\)</span> sur
+<span class="math inline">\([0,1]\)</span>,<br />
+on reconnait la somme de Riemann et la subdivision réglière est <span
+class="math inline">\(\sigma_{n}^{k}\)</span> = <span
+class="math inline">\(\frac{k}{n}\)</span>, <span
+class="math inline">\(k \in \{1, \dots, n\}\)</span>.</p>
+<p>Comme <span class="math inline">\(f\)</span> est continue sur <span
+class="math inline">\([0,1]\)</span>, donc elle est intégrable au sens
+de Riemann sur <span class="math inline">\([0,1]\)</span>.</p>
+<p>Et la <span class="math display">\[\lim_{n \to +\infty} c_n =
+\int_{0}^{1} f(t) \, dt = \int_{0}^{n} \sqrt{t(1-t)}\]</span> Rappel :
+<span class="math display">\[t(1-t) = t-t^2 =
+\frac{1}{4}-(t-\frac{1}{2})^2 = \frac{1}{4}(1-(2t-1)^2 ) \]</span></p>
+<p>Donc, en effectuant un changement de variable, <span
+class="math inline">\(2t-1 =\)</span> <span
+class="math inline">\(\sin{y}\)</span>, on aura :</p>
+<p><span class="math display">\[ c_n =
+\frac{1}{8}\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} (\cos(2y)+1)dy =
+\frac{\pi}{8}\]</span></p>
+</details>
+</div>
+<div class="exercise-box">
+<p><strong>Énoncé 3</strong></p>
+<p>Calculer la limite de la suite suivante quand <span
+class="math inline">\(n \to \infty\)</span> :</p>
+<p><span class="math display">\[n \sqrt{(1 + \frac{1}{n})(1 +
+\frac{2}{n}) \cdots (1 + \frac{n}{n})}\]</span></p>
+<details>
+<summary>
+<strong>Corrigé</strong>
+</summary>
+<!-- Insère la solution ici -->
+<p>Indication:</p>
+On applique <span class="math inline">\(\ln\)</span> et après on
+reconnait la fonction <span class="math inline">\(f\)</span>
+</details>
+</div>
+<div class="exercise-box">
+<p><strong>Énoncé 4</strong></p>
+<p>Calculer la limite de la suite suivante quand <span
+class="math inline">\(n \to \infty\)</span> :</p>
+<p><span class="math display">\[\frac{\pi}{n}
+\left(\sin\left(\frac{\pi}{n}\right) + \sin\left(\frac{2\pi}{n}\right) +
+\cdots + \sin\left(\frac{(n-1)\pi}{n}\right)\right)\]</span></p>
+<details>
+<summary>
+<strong>Corrigé</strong>
+</summary>
+<!-- Insère la solution ici -->
+<p>Soit <span class="math display">\[d_n = \frac{\pi}{n}
+\left(\sin\left(\frac{\pi}{n}\right) + \sin\left(\frac{2\pi}{n}\right) +
+\cdots + \sin\left(\frac{(n-1)\pi}{n}\right)\right)\]</span></p>
+<p>donc, <span class="math display">\[d_n =
+\frac{\pi}{n}\sum_{k=0}^{n-1}\sin(\frac{k}{n}\pi)\]</span> Avec, <span
+class="math inline">\(f(t) = \sin(t)\)</span> sur <span
+class="math inline">\([0,\pi]\)</span>, on reconnait la somme de Riemann
+et la subdivision réglière est <span
+class="math inline">\(\sigma_{n}^{k}\)</span> = <span
+class="math inline">\(\frac{k}{n}\)</span>, <span
+class="math inline">\(k \in \{1, \dots, n\}\)</span>. Comme <span
+class="math inline">\(f\)</span> est continue sur <span
+class="math inline">\([0,\pi]\)</span>, donc elle est intégrable au sens
+de Riemann sur <span class="math inline">\([0,\pi]\)</span>.</p>
+Et la <span class="math display">\[\lim_{n \to +\infty} d_n =
+\int_{0}^{\pi} f(t) \, dt = \int_{0}^{\pi}\sin(t)\,dt = [ -\cos(t)
+]_{0}^{\pi} = 2\]</span>
+</details>
+</div>
+<div class="exercise-box">
+<p><strong>Énoncé 5</strong></p>
+<p>Calculer la limite de la suite suivante quand <span
+class="math inline">\(n \to \infty\)</span> :</p>
+<p><span class="math display">\[\frac{\sum_{k=1}^{n}k^{a-1}}{n^a}, \quad
+a \ge 1\]</span></p>
+<details>
+<summary>
+<strong>Corrigé</strong>
+</summary>
+<!-- Insère la solution ici -->
+<p>Posons <span class="math display">\[ e_n =
+\frac{\sum_{k=1}^{n}k^{a-1}}{n^a}, \quad a \ge 1\]</span></p>
+<p>Alors <span class="math display">\[ e_n
+=\sum_{k=1}^{n}\frac{k^{a-1}}{n^a} =
+\frac{1}{n}\sum_{k=1}^{n}\frac{k^{a-1}}{n^{a-1}} =
+\frac{1}{n}\sum_{k=1}^{n} \left(\frac{k}{n} \right)^{a-1}\]</span></p>
+<p>avec <span class="math inline">\(f(t) = t^{a-1}\)</span> sur <span
+class="math inline">\([0,1]\)</span>,on reconnait la somme de Riemann et
+la subdivision réglière est <span
+class="math inline">\(\sigma_{n}^{k}\)</span> = <span
+class="math inline">\(\frac{k}{n}\)</span>, <span
+class="math inline">\(k \in \{1, \dots, n\}\)</span>.</p>
+<p>Comme <span class="math inline">\(f\)</span> est continue sur <span
+class="math inline">\([0,1]\)</span>, donc elle est intégrable au sens
+de Riemann sur <span class="math inline">\([0,1]\)</span>.</p>
+<p>Et la <span class="math display">\[\lim_{n \to +\infty} d_n =
+\int_{0}^{1} f(t) \, dt = \int_{0}^{1}t^{a-1}\,dt=
+\frac{1}{a}\]</span></p>
+</details>
+</div>
+<div class="exercise-box">
+<p><strong>Énoncé 6</strong></p>
+<p>Calculer la limite de la suite suivante quand <span
+class="math inline">\(n \to \infty\)</span> :</p>
+<p><span class="math display">\[\sin(\frac{\pi}{n}) \sum_{k=0}^{n-1}
+\frac{1}{2 + \cos\left(\frac{k \pi}{n}\right)}\]</span></p>
+<details>
+<summary>
+<strong>Corrigé</strong>
+</summary>
+<!-- Insère la solution ici -->
+<p>Indication:</p>
+Il faut donner une équivalence de <span
+class="math inline">\(\sin\)</span>
+</details>
+</div>
+<div class="exercise-box">
+<p><strong>Énoncé 7</strong></p>
+<p>Calculer la limite de la suite suivante quand <span
+class="math inline">\(n \to \infty\)</span> :</p>
+<p><span class="math display">\[\frac{1}{n^3} \sum_{k=1}^{n} k^2
+\sin\left(\frac{k \pi}{n}\right)\]</span></p>
+<details>
+<summary>
+<strong>Corrigé</strong>
+</summary>
+<!-- Insère la solution ici -->
+<p>Posons <span class="math display">\[
+f_n = \frac{1}{n^3} \sum_{k=1}^{n} k^2 \sin\left(\frac{k \pi}{n}\right)
+\]</span></p>
+<p>Alors <span class="math display">\[
+f_n = \frac{1}{n} \sum_{k=1}^{n}\frac{k^2}{n^2} \sin\left(\frac{k
+\pi}{n}\right)= \frac{1}{\pi^3}\frac{\pi}{n} \sum_{k=1}^{n}\left(
+\frac{k\pi}{n}\right)^2 \sin\left(\frac{k \pi}{n}\right)  
+\]</span></p>
+<p>Avec <span class="math inline">\(f(t) = t^{2}\sin(t)\)</span> sur
+<span class="math inline">\([0, 1]\)</span>, on reconnaît la somme de
+Riemann, et la subdivision régulière est <span class="math display">\[
+\sigma_{n}^{k} = \frac{k}{n}, \quad k \in \{1, \dots, n\}.
+\]</span></p>
+<p>Comme <span class="math inline">\(f\)</span> est continue sur <span
+class="math inline">\([0, \pi]\)</span>, elle est donc intégrable au
+sens de Riemann sur <span class="math inline">\([0, \pi]\)</span>.</p>
+<p>Finalement, nous avons <span class="math display">\[
+\lim_{n \to +\infty} f_n =\frac{1}{\pi^3}\int_{0}^{\pi} f(t) \, dt
+=  =\frac{1}{\pi^3}\int_{0}^{\pi}t^{2}\sin(t)\, dt = \frac{\pi^2 +
+4}{\pi^3}.
+\]</span></p>
+</details>
+</div>
+<div class="exercise-box">
+<p><strong>Énoncé 8</strong></p>
+<p>Calculer la limite de la suite suivante quand <span
+class="math inline">\(n \to \infty\)</span> :</p>
+<p><span class="math display">\[n \sqrt{(1 +
+\left(\frac{1}{n}\right)^2)(1 + \left(\frac{2}{n}\right)^2) \cdots (1 +
+\left(\frac{n}{n}\right)^2)}\]</span></p>
+<details>
+<summary>
+<strong>Corrigé</strong>
+</summary>
+<!-- Insère la solution ici -->
+<p>On pose <span class="math display">\[g_n = n \sqrt{(1 +
+\left(\frac{1}{n}\right)^2)(1 + \left(\frac{2}{n}\right)^2) \cdots (1 +
+\left(\frac{n}{n}\right)^2)}\]</span></p>
+<p>Indication:</p>
+<p>on pose <span class="math display">\[ G_n = \ln(g_n) =
+\frac{1}{n}\sum_{k=1}^{n}\ln(1+\frac{k}{n})\]</span></p>
+<p>Avec, <span class="math inline">\(f(t) = \ln(1+t)\)</span> sur <span
+class="math inline">\([0,1]\)</span>, on reconnait la somme de Riemann
+et la subdivision réglière est <span
+class="math inline">\(\sigma_{n}^{k}\)</span> = <span
+class="math inline">\(\frac{k}{n}\)</span>, <span
+class="math inline">\(k \in \{1, \dots, n\}\)</span>. Comme <span
+class="math inline">\(f\)</span> est continue sur <span
+class="math inline">\([0,1]\)</span>, donc elle est intégrable au sens
+de Riemann sur <span class="math inline">\([0,1]\)</span>, et <span
+class="math inline">\(\int_{0}^{1}\ln(1+t) \, dt = 2\ln2
+-1\)</span>.</p>
+<p>Or gràce à la continuité de la fonction <span
+class="math inline">\(\ln\)</span>, on a:</p>
+<p><span class="math display">\[\lim_{n \to +\infty} g_n =e^{2\ln2-1} =
+\frac{4}{e}\]</span></p>
+</details>
+</div>
+<div class="exercise-box">
+<p><strong>Énoncé 9</strong></p>
+<p>Calculer la limite de la suite suivante quand <span
+class="math inline">\(n \to \infty\)</span> :</p>
+<p><span class="math display">\[\left( \frac{n+1}{\sqrt{n}} \cdot
+\frac{n+2}{\sqrt{2n}} \cdots \frac{2n}{\sqrt{n^2}}
+\right)^{\frac{1}{\ln(n)}}\]</span></p>
+<details>
+<summary>
+<strong>Corrigé</strong>
+</summary>
+<!-- Insère la solution ici -->
+<p>Indication:</p>
+On applique <span class="math inline">\(\ln(x_n)\)</span>
+</details>
+</div>
+<div class="exercise-box">
+<p><strong>Énoncé 10</strong></p>
+<p>Calculer la limite de la suite suivante quand <span
+class="math inline">\(n \to \infty\)</span> :</p>
+<p><span class="math display">\[\sum_{k=1}^{n}
+\tan^2\left(\frac{1}{\sqrt{n+k}}\right)\]</span></p>
+<details>
+<summary>
+<strong>Corrigé</strong>
+</summary>
+<!-- Insère la solution ici -->
+La limite de cette suite est …
+</details>
+</div>
+<div class="exercise-box">
+<p><strong>Énoncé 11</strong></p>
+<p>Calculer la limite de la suite suivante quand <span
+class="math inline">\(n \to \infty\)</span> :</p>
+<p><span class="math display">\[\frac{1}{n} \sum_{k=0}^{n-1} (n - k)
+\int_{\frac{k}{n}}^{\frac{k+1}{n}} f(t) \, dt\]</span>, où <span
+class="math inline">\(f\)</span> est une fonction continue sur <span
+class="math inline">\([0, 1]\)</span></p>
+<details>
+<summary>
+<strong>Corrigé</strong>
+</summary>
+<!-- Insère la solution ici -->
+La limite de cette suite est …
+</details>
+</div>
+<div class="exercise-box">
+<p><strong>Énoncé 12</strong></p>
+<p>Calculer la limite de la suite suivante quand <span
+class="math inline">\(n \to \infty\)</span> :</p>
+<p><span class="math display">\[\sum_{n=1}^{n}
+\sin\left(\frac{k}{n}\right) \sin\left(\frac{k}{n^2}\right)\]</span>
+(utiliser un encadrement de <span
+class="math inline">\(\sin(x)\)</span>)</p>
+<details>
+<summary>
+<strong>Corrigé</strong>
+</summary>
+<!-- Insère la solution ici -->
+La limite de cette suite est …
+</details>
+</div>
+<div class="exercise-box">
+<p><strong>Énoncé 13</strong></p>
+<p>Calculer la limite de la suite suivante quand <span
+class="math inline">\(n \to \infty\)</span> :</p>
+<p><span class="math display">\[\ln\left(1 + \frac{\pi}{n}\right)
+\sum_{k=0}^{n-1} \frac{1}{2 + \cos\left(\frac{3k
+\pi}{n}\right)}\]</span></p>
+<details>
+<summary>
+<strong>Corrigé</strong>
+</summary>
+<!-- Insère la solution ici -->
+<p>Indication:</p>
+<p>On donne une équivalence de <span
+class="math inline">\(\ln(1+\frac{\pi}{n})\)</span>.</p>
+<p>Puis sur l’intégrale, après avoir reconnu la fonction associée,</p>
+on effectue un changement de variable: <span class="math inline">\(u =
+\tan(\frac{x}{2})\)</span>
+</details>
+</div>
+<div class="exercise-box">
+<p><strong>Énoncé 14</strong></p>
+<p>Calculer la limite de la suite suivante quand <span
+class="math inline">\(n \to \infty\)</span> :</p>
+<p><span class="math display">\[\frac{\sqrt{n!}}{n^n}\]</span></p>
+<details>
+<summary>
+<strong>Corrigé</strong>
+</summary>
+<!-- Insère la solution ici -->
+<p>Pareil,</p>
+On pose <span class="math inline">\(V_n = \ln(u_n)\)</span> , avec <span
+class="math inline">\(u_n =\frac{\sqrt{n!}}{n^n}\)</span> et par la
+continuité de <span class="math inline">\(\ln\)</span>, on arrive à
+trouver le résultat voulu.
+</details>
+</div>
+<div class="exercise-box">
+<p><strong>Énoncé 15</strong></p>
+<p>Calculer la limite de la suite suivante quand <span
+class="math inline">\(n \to \infty\)</span> :</p>
+<p><span class="math display">\[\frac{1}{n+2}+\frac{1}{n+2}+ \cdots
++\frac{1}{kn}\]</span></p>
+<details>
+<summary>
+<strong>Corrigé</strong>
+</summary>
+<p>Indication: On factorise par <span
+class="math inline">\(\frac{1}{n}\)</span>,</p>
+Puis on reconnait la fonction <span class="math inline">\(f(t)=
+\frac{1}{1+t}\)</span> sur l’intervalle <span
+class="math inline">\([0,k-1]\)</span>. Et enfin, on obient le résultat
+voulu.
+</details>
+</div>
+<div class="exercise-box">
+<p><strong>Exercice 16</strong></p>
+<p>Calculer la limite de la suite suivante :</p>
+<p><span class="math display">\[ u_n = \sum_{k=0}^{n-1} \frac{1}{k^2 +
+n^2} \]</span></p>
+<details>
+<summary>
+Correction
+</summary>
+<ol type="1">
+<li>Soit <span class="math inline">\(u_n = \sum_{k=0}^{n-1} \frac{1}{k^2
++ n^2} = \frac{1}{n} \sum_{k=0}^{n-1}
+\frac{1}{\left(\frac{k}{n}\right)^2 + 1}\)</span>. En posant <span
+class="math inline">\(f(x) = \frac{1}{1 + x^2}\)</span>, nous venons
+d’écrire la somme de Riemann correspondant à <span
+class="math inline">\(\int_{0}^{1} f(x) \, dx\)</span>. Cette intégrale
+se calcule facilement :</li>
+</ol>
+<p><span class="math display">\[
+\int_{0}^{1} \frac{dt}{1 + t^2} = \left[ \arctan(t) \right]_0^1 =
+\frac{\pi}{4} - 0 = \frac{\pi}{4}.
+\]</span></p>
+<p>La somme de Riemann <span class="math inline">\(u_n\)</span>,
+convergeant vers <span class="math inline">\(\int_{0}^{1} f(x) \,
+dx\)</span>, nous venons de montrer que <span
+class="math inline">\(u_n\)</span> converge vers <span
+class="math inline">\(\frac{\pi}{4}\)</span>.</p>
+</details>
+</div>
+<div class="exercise-box">
+<p><strong>Exercice 17</strong></p>
+<p>Calculer la limite de la suite suivante :</p>
+<p><span class="math display">\[ v_n = \prod_{k=1}^{n} \left(1 +
+\frac{k^2}{n^2} \right)^{\frac{1}{n}} \]</span></p>
+<details>
+<summary>
+Correction
+</summary>
+<ol start="2" type="1">
+<li>Soit <span class="math inline">\(v_n = \prod_{k=1}^{n} \left(1 +
+\frac{k^2}{n^2} \right)^{\frac{1}{n}}\)</span>. Notons</li>
+</ol>
+<p><span class="math display">\[
+w_n = \ln(v_n) = \frac{1}{n} \sum_{k=1}^{n} \ln\left(1 + \frac{k^2}{n^2}
+\right).
+\]</span></p>
+<p>En posant <span class="math inline">\(g(x) = \ln(1 + x^2)\)</span>,
+nous reconnaissons la somme de Riemann correspondant à <span
+class="math inline">\(\int_{0}^{1} g(x) \, dx\)</span>. Calculons cette
+intégrale :</p>
+<p><span class="math display">\[
+I = \int_{0}^{1} g(x) \, dx = \int_{0}^{1} \ln(1 + x^2) \, dx.
+\]</span></p>
+<p>Utilisons l’intégration par parties :</p>
+<p><span class="math display">\[
+\begin{aligned}
+I &amp;= \left[ x \ln(1 + x^2) \right]_{0}^{1} - \int_{0}^{1}
+\frac{2x}{1 + x^2} x \, dx \\
+  &amp;= \ln(1 + 1^2) - 2 \int_{0}^{1} \frac{x^2}{1 + x^2} \, dx \\
+  &amp;= \ln(2) - 2 \left( \int_{0}^{1} 1 - \frac{1}{1 + x^2} \, dx
+\right) \\
+  &amp;= \ln(2) - 2 \left( \left[ x \right]_{0}^{1} - \int_{0}^{1}
+\frac{dx}{1 + x^2} \right) \\
+  &amp;= \ln(2) - 2 \left( 1 - \frac{\pi}{4} \right) \\
+  &amp;= \ln(2) - 2 + \frac{\pi}{2}.
+\end{aligned}
+\]</span></p>
+<p>Nous venons de prouver que <span class="math inline">\(w_n =
+\ln(v_n)\)</span> converge vers <span class="math inline">\(I = \ln(2) -
+2 + \frac{\pi}{2}\)</span>, et puisque la fonction <span
+class="math inline">\(\exp\)</span> est continue, alors <span
+class="math inline">\(v_n = \exp(w_n)\)</span> converge vers</p>
+<p><span class="math display">\[
+\exp \left( \ln(2) - 2 + \frac{\pi}{2} \right) = 2 \exp \left(
+\frac{\pi}{2} - 2 \right).
+\]</span></p>
+<p>Conclusion : <span class="math inline">\((v_n)\)</span> a pour limite
+<span class="math inline">\(2\exp\left( \frac{\pi}{2} - 2
+\right)\)</span>.</p>
+</details>
+</div>
+
+</main>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+document.addEventListener("DOMContentLoaded", function(event) {
+  var script = document.createElement("script");
+  script.type = "text/javascript";
+  script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+  document.getElementsByTagName("head")[0].appendChild(script);
+});
+</script>
+
+</body>
+</html>
